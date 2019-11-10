@@ -8,7 +8,10 @@ phases:
   install:
     commands:
       - echo Entered the install phase...
-       - ls && pwd && cd ../../../github.com/${owner}/${repo}/src && pwd && ls
+      - apt-get update -y
+      - apt-get install -y maven
+      - ls && pwd && cd ../../../github.com/${owner}/${repo} && pwd && ls
+      - mvn install && mvn package
       - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
       - unzip sonar-scanner-cli-3.3.0.1492-linux.zip
       - export PATH=$PATH:./sonar-scanner-3.3.0.1492-linux/bin/  
