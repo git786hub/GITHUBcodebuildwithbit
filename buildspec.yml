@@ -8,6 +8,9 @@ phases:
   install:
     commands:
       - echo Entered the install phase...
+      - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
+      - unzip sonar-scanner-cli-3.3.0.1492-linux.zip
+      - export PATH=$PATH:./sonar-scanner-3.3.0.1492-linux/bin/
 
     finally:
       - echo This always runs even if the update or install command fails 
@@ -16,6 +19,7 @@ phases:
       - ls && pwd && cd ../../../github.com/${owner}/${repo} && pwd && ls
       - echo Entered the build phase...
       - echo ${owner}
+      - sonar-scanner -Dsonar.login=$SONAR_LOGIN -Dsonar.host.url=$SONAR_HOST -Dsonar.projectKey=$pkey -Dsonar.projectName=$pName
      
       
     finally:
