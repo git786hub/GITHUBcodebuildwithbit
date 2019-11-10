@@ -8,7 +8,7 @@ phases:
   install:
     commands:
       - echo Entered the install phase...
-       - ls && pwd && cd ../../../github.com/${owner}/${repo} && pwd && ls
+       - ls && pwd && cd ../../../github.com/${owner}/${repo}/src && pwd && ls
       - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
       - unzip sonar-scanner-cli-3.3.0.1492-linux.zip
       - export PATH=$PATH:./sonar-scanner-3.3.0.1492-linux/bin/  
