@@ -12,7 +12,7 @@ phases:
       - unzip sonar-scanner-cli-3.3.0.1492-linux.zip
       - export PATH=$PATH:./sonar-scanner-3.3.0.1492-linux/bin/
        
-      - sonar-scanner -Dsonar.login=25768473a95842a095bfb33f1b13c01d3d44ed08 -Dsonar.host.url=http://34.238.246.231:9000/about -Dsonar.projectKey=123 -Dsonar.projectName=pName
+      - sonar-scanner -Dsonar.login=25768473a95842a095bfb33f1b13c01d3d44ed08 -Dsonar.host.url=http://34.238.246.231:9000 -Dsonar.projectKey=123 -Dsonar.projectName=pName
       - ls && pwd && cd ../../../github.com/${owner}/${repo} && pwd && ls
       - cat /etc/os-release
     finally:
