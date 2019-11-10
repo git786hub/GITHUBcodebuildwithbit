@@ -16,7 +16,7 @@ phases:
       - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
       - unzip sonar-scanner-cli-3.3.0.1492-linux.zip
       - export PATH=$PATH:./sonar-scanner-3.3.0.1492-linux/bin/  
-      - sonar-scanner -Dsonar.login=25768473a95842a095bfb33f1b13c01d3d44ed08 -Dsonar.host.url=http://34.238.246.231:9000 -Dsonar.projectKey=12345 -Dsonar.projectName=pc1Name
+      - sonar-scanner -Dsonar.login=25768473a95842a095bfb33f1b13c01d3d44ed08 -Dsonar.host.url=http://34.238.246.231:9000 -Dsonar.projectKey=12345 -Dsonar.projectName=pc1Name -X
       
       - cat /etc/os-release
     finally:
