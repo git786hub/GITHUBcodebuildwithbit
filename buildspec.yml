@@ -9,8 +9,12 @@ phases:
     commands:
       - echo Entered the install phase...
       - apt-get update -y
-        
       - ls && pwd && cd ../../../github.com/${owner}/${repo} && pwd && ls
+      - apt-get install -y maven
+      
+      - mvn install && mvn package
+        
+      
       - echo $JAVA_HOME
       - java -version
       - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
