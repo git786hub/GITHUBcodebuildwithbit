@@ -9,7 +9,7 @@ phases:
     commands:
       - echo Entered the install phase...
       - apt-get update -y
-      - ls && pwd && cd ../../../github.com/${owner}/${repo} && pwd && ls
+      - ls && pwd && cd ../../../${weblink}/${owner}/${repo} && pwd && ls
       - apt-get install -y maven
       
       - mvn install && mvn package
