@@ -8,12 +8,12 @@ phases:
   install:
     commands:
       - echo Entered the install phase...
-      - apt-get update -y
+      
       - ls && pwd && cd ../../../${weblink}/${owner}/${repo} && pwd && ls
       - apt-get install -y maven
       
       - mvn install && mvn package
-        
+
       
       - echo $JAVA_HOME
       - java -version
@@ -22,7 +22,8 @@ phases:
       - export PATH=$PATH:./sonar-scanner-3.3.0.1492-linux/bin/  
       - sonar-scanner -Dsonar.login=25768473a95842a095bfb33f1b13c01d3d44ed08 -Dsonar.host.url=${sonarURL} -Dsonar.projectKey=${Projcetkey} -Dsonar.projectName=${sonarproject} -Dsonar.sources=src -Dsonar.java.binaries=target -X
       
-      - cat /etc/os-release
+      - cat /etc/os-release  
+    
     finally:
       - echo This always runs even if the update or install command fails 
   build:
@@ -30,6 +31,9 @@ phases:
       
       - echo Entered the build phase...
       - echo ${owner}
+      - ls
+      - pwd
+      - cd ../../../${weblink}/${owner}/${repo}
      
       
     finally:
@@ -40,6 +44,6 @@ phases:
       - echo Build completed on `date`
 artifacts:
   files:
-    - target/jpetstore.war
+    - ../../../${weblink}/${owner}/${repo}/target/jpetstore.war
     - appspec.yml
   discard-paths: yes
